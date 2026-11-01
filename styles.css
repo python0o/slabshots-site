@@ -520,6 +520,8 @@ body.nav-open .burger::after { top: 0; transform: rotate(-45deg); }
   margin-top: 14px;
   font-size: 0.95rem;
 }
+.cap-title { display: block; color: var(--text); }
+.cap-note { display: block; margin-top: 4px; font-size: 0.78rem; line-height: 1.35; }
 .phone { filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.45)); }
 .bezel {
   position: relative;
@@ -565,7 +567,8 @@ body.nav-open .burger::after { top: 0; transform: rotate(-45deg); }
   border-radius: 20px;
   z-index: 4;
 }
-.screen video {
+.screen video,
+.screen .poster {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -573,6 +576,8 @@ body.nav-open .burger::after { top: 0; transform: rotate(-45deg); }
   object-fit: cover;
   background: #000;
 }
+.screen video { z-index: 2; }
+.screen .poster { z-index: 1; display: none; }
 .ph { display: none; }
 .js .clip:not(.has-played) .ph {
   display: flex;
@@ -611,7 +616,7 @@ body.nav-open .burger::after { top: 0; transform: rotate(-45deg); }
   color: var(--gold);
   font-weight: 600;
 }
-.ph-title { font-family: var(--serif); font-size: 1.45rem; line-height: 1.1; color: var(--text); }
+.ph-title { font-family: var(--serif); font-size: 1.2rem; line-height: 1.15; color: var(--text); }
 .ph-state { color: var(--muted); font-size: 0.92rem; }
 .ph-file { color: var(--muted); font-size: 0.75rem; }
 .ph-file code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
@@ -620,6 +625,8 @@ body.nav-open .burger::after { top: 0; transform: rotate(-45deg); }
 .js .clip.is-ready:not(.has-played) video { opacity: 0; pointer-events: none; }
 .js .clip.is-ready .ph-state,
 .js .clip.is-ready .ph-file { display: none; }
+.js .clip.has-poster .poster { display: block; }
+.js .clip.has-poster .ph { display: none; }
 
 .play-big { display: none; }
 .js .clip.is-ready:not(.is-playing) .play-big {
@@ -719,6 +726,14 @@ body.nav-open .burger::after { top: 0; transform: rotate(-45deg); }
 .row h3 { margin: 0; }
 .mini .muted { margin-bottom: 12px; }
 .ideas-block { margin-top: 28px; }
+.demo-card {
+  display: flex;
+  max-width: 440px;
+  margin-top: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+.demo-card .text-link { margin-top: 12px; }
 .ideas {
   list-style: none;
   padding: 0;
